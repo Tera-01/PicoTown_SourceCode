@@ -52,11 +52,8 @@ public class UISleepInBed : MonoBehaviour
         TileManager.Instance.UpdateTile();
         TileManager.Instance.Save();
         GameManager.instance.Save();
-        
+        UIManager.instance.GetUI<UIFadeOut>().FadeOut();
         SaveManager.instance.SetSaveFile(SaveManager.instance.saveDataList[SaveManager.instance.currentSaveFile]);
-        
-        TileManager.Instance.Load();
-        GameManager.instance.Load();
         // SceneManager.LoadScene(1);
     }
 }

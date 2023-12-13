@@ -1,4 +1,5 @@
 using System;
+using Constants;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public string[] daysOfWeek = {"Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" };
     public string[] seasons = { "봄", "여름", "가을", "겨울" };
-
+    
     private int _maxHour = 24;
     private int _maxMinute = 60;
     private int _maxDay = 28;
@@ -175,15 +176,39 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            SaveManager _saveManager = SaveManager.instance;
+            Load();
+            if (_saveManager.saveDataList[_saveManager.currentSaveFile].TileData.TileTypeData.Count != 0)
+            {
+                TileManager.Instance.Load();
+            }
+            
+            PlayerController.Instance.CurDirection = Direction.DOWN;
+            JoystickMovement.Instance.PointUp();
+            UnityEngine.Vector3 test = new()
+            {
+                x = 2.8f,
+                y = 2.8f,
+                z = 0f
+            };
+            PlayerController.Instance.tf.position = test;
+            Camera.main.transform.position = test;
+            
             UIManager.instance.GetUI<UITimer>();
             UIManager.instance.GetUI<UIMissionOpenButton>();
             UIManager.instance.GetUI<UIEnergyBar>();
             UIManager.instance.GetUI<UIInventoryOpenButton>();
             UIManager.instance.GetUI<UIHotBar>();
             UIManager.instance.GetUI<UIFadeIn>().FadeIn();
-            UIManager.instance.GetUI<UIGuide>();
             GameTime = SaveManager.instance.saveDataList[SaveManager.instance.currentSaveFile].GameData.TotalPlayTime;
-            isTimePaused = false;
+            
+            if (GameTime == 0)
+            {
+                UIManager.instance.GetUI<UIGuide>();
+                isTimePaused = true;
+            }
+            else
+                isTimePaused = false;
             isSceneActive = true;
         }
     }

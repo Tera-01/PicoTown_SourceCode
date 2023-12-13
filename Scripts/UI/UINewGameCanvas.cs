@@ -106,7 +106,11 @@ public class UINewGameCanvas : UIBase
         defaultInventory.Add(new SlotSaveData() { Index = 1, ItemId = (int)Tool.HOE, Count = 1 });
         defaultInventory.Add(new SlotSaveData() { Index = 2, ItemId = (int)Tool.WATERINGCAN, Count = 1 });
         defaultInventory.Add(new SlotSaveData() { Index = 3, ItemId = (int)Tool.PICKAXE, Count = 1 });
-        defaultInventory.Add(new SlotSaveData() { Index = 4, ItemId = 3117, Count = 5 });
+        defaultInventory.Add(new SlotSaveData() { Index = 4, ItemId = 3117, Count = 5 }); // 당근
+        defaultInventory.Add(new SlotSaveData() { Index = 5, ItemId = 3109, Count = 5 }); // 순무
+        defaultInventory.Add(new SlotSaveData() { Index = 6, ItemId = 3115, Count = 5 }); // 토마토
+        defaultInventory.Add(new SlotSaveData() { Index = 7, ItemId = 3112, Count = 5 }); // 가지
+        defaultInventory.Add(new SlotSaveData() { Index = 8, ItemId = 3113, Count = 5 }); // 호박
 
         _saveManager.saveDataList.Add(data);
         _saveManager.currentSaveFile = data.GameData.SaveNum;

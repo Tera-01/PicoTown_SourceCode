@@ -25,17 +25,17 @@ public class UITextException : MonoBehaviour
     
     public void ChangePlayerNameValueText()
     {
-        _guidText.text = "이름은 최대 7글자 이하만 가능합니다.";
+        _guidText.text = "이름은 최대 6글자 이하만 가능합니다.";
     }
     
     public void ChangeFarmNameValueText()
     {
-        _guidText.text = "농장 이름은 최대 7글자 이하만 가능합니다.";
+        _guidText.text = "농장 이름은 최대 6글자 이하만 가능합니다.";
     }
     
     public void ChangeFavoriteValueText()
     {
-        _guidText.text = "좋아하는 것은 최대 7글자 이하만 가능합니다.";
+         _guidText.text = "좋아하는 것은 최대 6글자 이하만 가능합니다.";
     }
     
     public void ChangeFullSlotText()

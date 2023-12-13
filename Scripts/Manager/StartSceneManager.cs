@@ -5,6 +5,12 @@ public class StartSceneManager : MonoBehaviour
     [SerializeField] private Camera _camera;
 
     private float moveSpeed = 2.03f;
+
+    private void Start()
+    {
+        Application.targetFrameRate = 30;
+    }
+
     void Update()
     {
         Moves();

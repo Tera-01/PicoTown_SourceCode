@@ -109,6 +109,15 @@ public class UISaveFileCanvas : MonoBehaviour
         CloseSaveFileWindow();
         CloseDeleteWindow();
         int saveFileNum = _saveManager.saveDataList[number].GameData.SaveNum;
+        
+        SaveData removedFile = null;
+        foreach (var item in _saveManager.saveDataList)
+        {
+            if (item.GameData.SaveNum == saveFileNum)
+                removedFile = item;
+        }
+        _saveManager.saveDataList.Remove(removedFile);
+        
         File.Delete($"{_saveManager.path}{saveFileNum}");
         _slots[number].SetActive(false);
         _isCheckSaveFile = false;

@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
+            if (UIs.TryGetValue(uiName, out GameObject test))
+                UIs.Remove(uiName);
             comp = CreateUI<T>();
         }
         return comp;
